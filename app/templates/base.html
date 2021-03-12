@@ -4,50 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Ravi+Prakash&display=swap" rel="stylesheet">
+
+
+
     <title>{{ title }}</title>
 </head>
 <body>
     <header>
-        <h1>Let's play rock, paper, scissors!</h1>
+        <h1>Rock, paper, scissors!</h1>
     </header>
     <main>
-        <article>
-            <h3>What are the rules?</h3>
-            <p>It's a two player game. Each player chooses either rock, paper or scissors.</p>
-            <ul>
-                <li>
-                    <p>Rock beats scissors</p>
-                </li>
-                <li>
-                    <p>Scissors beats paper</p>
-                </li>
-                <li>
-                    <p>Paper beats rock</p>
-                </li>
-            </ul>
-        </article>
+        {% block content %}
+        
+        {% endblock %}
         <article>
 
-            <form action="/game/fight" method="post">
-                <div>
-                    <h4>Player 1 Choice:</h4>
-                    <label for="p1_rock">Rock</label>
-                    <input type="radio" name="p1_choice" value="rock">
-                    <label for="p1_paper">Paper</label>
-                    <input type="radio" name="p1_choice" value="paper">
-                    <label for="p1_scissors">Scissors</label>
-                    <input type="radio" name="p1_choice" value="scissors">
-                </div>
-                <div>
-                    <h4>Player 2 Choice:</h4>
-                    <label for="p2_rock">Rock</label>
-                    <input type="radio" name="p2_choice" value="rock">
-                    <label for="p2_paper">Paper</label>
-                    <input type="radio" name="p2_choice" value="paper">
-                    <label for="p2_scissors">Scissors</label>
-                    <input type="radio" name="p2_choice" value="scissors">
+            <form action="/game/fight" method="post" class="game_form">
+                <div id="p1_choice">
+                    <header id="p1_header">
+                        <h4>Player 1 Choice:</h4>
+                    </header>
+                    <input type="radio" name="p1_choice" id="p1_rock" value="rock">
+                    <label for="p1_rock" id="p1_rock_label">Rock</label>
+                    <input type="radio" name="p1_choice" id="p1_paper" value="paper">
+                    <label for="p1_paper"id="p1_paper_label">Paper</label>
+                    <input type="radio" name="p1_choice" id="p1_scissors" value="scissors">
+                    <label for="p1_scissors"id="p1_scissors_label">Scissors</label>
                 </div>
                 <input type="submit" value="Fight!">
+                <div id="p2_choice">
+                    <header id="p2_header">
+                        <h4>Player 2 Choice:</h4>
+                    </header>
+                    <input type="radio" name="p2_choice" id="p2_rock" value="rock">
+                    <label for="p2_rock">Rock</label>
+                    <input type="radio" name="p2_choice" id="p2_paper" value="paper">
+                    <label for="p2_paper">Paper</label>
+                    <input type="radio" name="p2_choice" id="p2_scissors" value="scissors">
+                    <label for="p2_scissors">Scissors</label>
+                </div>
             </form>
         </article>
     </main>

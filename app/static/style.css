@@ -1,0 +1,179 @@
+body {
+    background-color: rgb(190, 190, 190);
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+ul > li {
+    border: 1px solid black;
+    flex: 33%;
+    margin: 3px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+h4 {
+    margin: 0;
+}
+
+header {
+    font-family: 'Ravi Prakash', cursive;
+    background-color: darkblue;
+    margin: 0;
+    text-align: center;
+    color: white;
+}
+
+.rules {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+    flex-wrap: wrap;
+}
+
+
+.rules > div {
+    border: 1px solid black;
+    height: 300px;
+    width: 300px;
+    border-radius: 5px;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+}
+
+.rules > div > * {
+    flex: 25%;
+}
+
+.rules > div > p {
+    margin: 10px;
+    padding-top: 20px;
+}
+
+.rules li:hover {
+    border: 1px solid white;
+    color: white;
+    background-color: darkblue;
+}
+
+.rules > aside {
+    display: flex;
+    background-image: url("https://world.wng.org/sites/default/files/migrated_images/istock_000023224121_medium_1.jpg");
+    display: block flex;
+    flex-direction: column;
+    height: 300px;
+    width: 300px;
+    background-size: 300px 300px;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin: 5px;
+}
+
+/* .rules > aside > div {
+    background-color: rgb(0, 0, 0, 0.3);
+    flex: 33%;
+} */
+
+/* #rules_scissors:hover #pic_scissors {
+    background-color: rgb(0, 0, 0, 0); */
+/* } */
+
+
+.game_form {
+    margin-top: 50px;
+    display: flex;
+    height: 90px;
+    flex-wrap: wrap;
+}
+    .game_form > div {
+        flex: 25%;
+        margin: 0 20px;
+    }
+
+input[type='radio'] {
+    position: absolute;
+    height: 0px;
+    width: 0px;
+}
+
+input[type='radio']:checked + label {
+    border: 1px solid green;
+    background-color: rgb(54, 163, 90);
+    color: black;
+}
+
+label {
+    border: 1px solid black;
+    height: max-content;
+    padding: 10px;
+    margin: 10px;
+}
+
+label:hover {
+    border: 1px solid white;
+    color: white;
+    background-color: darkblue;
+}
+
+label:active {
+    background-color: white;
+    color:black;
+
+}
+
+#p1_header {
+    grid-area: header;
+}
+
+#p1_rock_label {
+    grid-area: option_1;
+}
+
+#p1_paper_label {
+    grid-area: option_2;
+}
+
+#p1_scissors_label {
+    grid-area: option_3;
+}
+
+#p2_header {
+    grid-area: header;
+}
+
+#p2_rock_label {
+    grid-area: option_1;
+}
+
+#p2_paper_label {
+    grid-area: option_2;
+}
+
+#p2_scissors_label {
+    grid-area: option_3;
+}
+
+/* Grid isn't working. Either fix or replace with flex. */
+.game_form > div {
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 2fr;
+    grid-template-areas:
+        'header header header'
+        'option_1 option_2 option_3';
+}
+
+#p1_choice > header {
+}
+
