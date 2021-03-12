@@ -8,10 +8,48 @@
 </head>
 <body>
     <header>
-        Let's play rock, paper, scissors!`
+        <h1>Let's play rock, paper, scissors!</h1>
     </header>
     <main>
+        <article>
+            <h3>What are the rules?</h3>
+            <p>It's a two player game. Each player chooses either rock, paper or scissors.</p>
+            <ul>
+                <li>
+                    <p>Rock beats scissors</p>
+                </li>
+                <li>
+                    <p>Scissors beats paper</p>
+                </li>
+                <li>
+                    <p>Paper beats rock</p>
+                </li>
+            </ul>
+        </article>
+        <article>
 
+            <form action="/game/fight" method="post">
+                <div>
+                    <h4>Player 1 Choice:</h4>
+                    <label for="p1_rock">Rock</label>
+                    <input type="radio" name="p1_choice" value="rock">
+                    <label for="p1_paper">Paper</label>
+                    <input type="radio" name="p1_choice" value="paper">
+                    <label for="p1_scissors">Scissors</label>
+                    <input type="radio" name="p1_choice" value="scissors">
+                </div>
+                <div>
+                    <h4>Player 2 Choice:</h4>
+                    <label for="p2_rock">Rock</label>
+                    <input type="radio" name="p2_choice" value="rock">
+                    <label for="p2_paper">Paper</label>
+                    <input type="radio" name="p2_choice" value="paper">
+                    <label for="p2_scissors">Scissors</label>
+                    <input type="radio" name="p2_choice" value="scissors">
+                </div>
+                <input type="submit" value="Fight!">
+            </form>
+        </article>
     </main>
     <footer>
 
