@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect
 from app import app
-from app.models.list_of_players import player_1, player_2, set_choices
+from app.models.list_of_players import player_1, player_2, computer_player, set_choices
 from app.models.player import Player
 from app.models.game import Game
 
@@ -20,7 +20,9 @@ def index():
 @app.route('/game/fight', methods=['POST'])
 def fight():
     p1_choice = request.form['p1_choice']
-    p2_choice = request.form['p2_choice']
+    if player_2 != computer_player:
+        p2_choice = request.form['p2_choice']
+    p2_choice = computer_player.choice
     set_choices(p1_choice, p2_choice)
     return redirect(f"/game/{p1_choice}/{p2_choice}")
 
@@ -37,6 +39,17 @@ def game_result(p1_choice, p2_choice):
         p1_score=player_1.score,
         p2_score=player_2.score,
         results=player_1.results
+    )
+
+@app.route('/play')
+def play_game():
+    return render_template(
+        'play.html',
+        title="Beat the computer",
+        player_1 =player_1,
+        player_2=computer_player,
+        p1_score=player_1.score,
+        p2_score=computer_player.score
     )
  
 #  @app.route('/game/rock/rock')
