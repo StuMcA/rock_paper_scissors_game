@@ -19,7 +19,7 @@ ul > li {
     align-items: center;
 }
 
-h4 {
+h1, h3, h4 {
     margin: 0;
 }
 
@@ -29,6 +29,25 @@ header {
     margin: 0;
     text-align: center;
     color: white;
+}
+
+.score {
+    width: 20%;
+    margin: 20px auto;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: rgb(156, 156, 209);
+}
+
+.score > header > h3 {
+    margin: 0;
+}
+
+.result {
+    width: 80%;
+    margin: auto;
+    text-align: center;
 }
 
 .rules {
@@ -49,6 +68,7 @@ header {
     display: flex;
     flex-direction: column;
     margin: 5px;
+    background-color: rgb(156, 156, 209);
 }
 
 .rules > div > * {
@@ -60,11 +80,33 @@ header {
     padding-top: 20px;
 }
 
+.rules li {
+    border: 1px solid white;
+    background-color: darkblue;
+    color: white;
+}
+
 .rules li:hover {
     border: 1px solid white;
-    color: white;
-    background-color: darkblue;
+    color: transparent;
 }
+
+.rules li:first-child:hover {
+    background: url("https://thumbs.gfycat.com/LinearPoshGrouper-small.gif");
+    background-size: 100px 100px;
+}
+
+.rules li:first-child + li:hover {
+    background: url("https://media2.giphy.com/media/6o3PFZDxuYhmQfYcpn/source.gif");
+    background-size: 100px 100px;
+}
+
+.rules li:first-child + li + li:hover {
+    background: url("https://media.tenor.com/images/7b7893845f9178f01d7914f590be4a9c/tenor.gif");
+    background-size: 130px 130px;
+    background-position: calc(50%) calc(50% - 20px);
+}
+
 
 .rules > aside {
     display: flex;
@@ -88,17 +130,29 @@ header {
     background-color: rgb(0, 0, 0, 0); */
 /* } */
 
-
-.game_form {
-    margin-top: 50px;
-    display: flex;
-    height: 90px;
-    flex-wrap: wrap;
+.history {
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 277px;
+    width: 25%;
+    margin: auto;
 }
-    .game_form > div {
-        flex: 25%;
-        margin: 0 20px;
-    }
+
+.history div {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+}
+
+.history ul {
+    margin: 0;
+    width: max-content;
+    margin: auto;
+}
+
+.history li {
+    border: none;
+}
 
 input[type='radio'] {
     position: absolute;
@@ -106,29 +160,36 @@ input[type='radio'] {
     width: 0px;
 }
 
-input[type='radio']:checked + label {
-    border: 1px solid green;
-    background-color: rgb(54, 163, 90);
-    color: black;
-}
-
 label {
     border: 1px solid black;
     height: max-content;
     padding: 10px;
     margin: 10px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bolder;
+    text-align: center;
+    border: 2px solid white;
+    text-shadow: 1px 1px gray;
 }
 
 label:hover {
-    border: 1px solid white;
-    color: white;
-    background-color: darkblue;
+    border: 2px solid rgb(107, 213, 222);
+    color: rgb(107, 213, 222);
+    box-shadow: 0 0 10px rgb(107, 213, 222);
 }
 
 label:active {
-    background-color: white;
-    color:black;
+    color:rgb(164, 14, 14);
+    border: 2px solid rgb(164, 14, 14);
+    box-shadow: 0 0 10px rgb(164, 14, 14);
 
+}
+
+input[type='radio']:checked + label {
+    border: 2px solid rgb(254, 242, 12);
+    color: rgb(254, 242, 12);
+    box-shadow: 0 0 20px rgb(254, 242, 12);
 }
 
 #p1_header {
@@ -137,14 +198,23 @@ label:active {
 
 #p1_rock_label {
     grid-area: option_1;
+    background: url("https://specials-images.forbesimg.com/imageserve/dv424076/960x0.jpg?fit=scale");
+    background-position: center;
+    background-size: 140px 110px;
 }
 
 #p1_paper_label {
     grid-area: option_2;
+    background: url("https://www.collinsdictionary.com/images/full/paper_111691001.jpg");
+    background-position: center;
+    background-size: 150px 150px;
 }
 
 #p1_scissors_label {
     grid-area: option_3;
+    background: url("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-72665433-1579643451.jpg?crop=1.00xw:0.753xh;0,0.147xh&resize=1200:*");
+    background-position: center;
+    background-size: 100px 80px;
 }
 
 #p2_header {
@@ -153,19 +223,38 @@ label:active {
 
 #p2_rock_label {
     grid-area: option_1;
+    background: url("https://www.sportbible.com/cdn-cgi/image/width=720,quality=70,format=jpeg,fit=pad,dpr=1/https%3A%2F%2Fs3-images.sportbible.com%2Fs3%2Fcontent%2Fa87d98d35f68c2fc94b0604a44d2e0dc.png");
+    background-position: calc(50%) calc(50% + 20px);
+    background-size: 170px 100px;
 }
 
 #p2_paper_label {
     grid-area: option_2;
+    background: url("https://newsfeed.time.com/wp-content/uploads/sites/9/2011/11/dundermifflin.jpg?w=600");
+    background-position: calc(50%) calc(50%);
+    background-size: 170px 100px;
 }
 
 #p2_scissors_label {
     grid-area: option_3;
+    background: url("https://variety.com/wp-content/uploads/2015/12/edward-scissorhands.jpg?w=681&h=383&crop=1");
+    background-position: calc(50%) calc(50%);
+    background-size: 170px 100px;
 }
 
-/* Grid isn't working. Either fix or replace with flex. */
+.game_form {
+    margin-top: 10px;
+    display: flex;
+    height: 90px;
+    flex-wrap: wrap;
+}
+
 .game_form > div {
+    flex: 20%;
+    background-color: rgb(156, 156, 209);
+    margin: 0 20px;
     border: 1px solid black;
+    border-radius: 5px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 2fr;
@@ -174,6 +263,26 @@ label:active {
         'option_1 option_2 option_3';
 }
 
-#p1_choice > header {
+.game_form > input {
+    flex: 10%;
+    background: url("https://cdn5.vectorstock.com/i/1000x1000/99/29/cartoon-explosion-boom-effect-animation-game-vector-15499929.jpg");
+    background-position: calc(50% + 5px) calc(50% + 25px);
+    background-size: 270px 270px;
+    border: 3px solid white;
+    border-radius: 15px;
+    font-weight: bolder;
+}
+
+.game_form >input:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 0 black;
+}
+
+.game_form > input:active {
+    transform: translateY(5px);
+    background: url("https://lh3.googleusercontent.com/proxy/J0I9st0wSx0PZ4KvIF8jrEl8R_iFL0uGIycLTTu7YtI3KbnfP1p9SCjAivCIM-CIFLN7vu6MkGnguptjzcfLXpd890e8fzbiuh9Uyvb8HCH3p7cbFbDkAWgIWnRgeD6oDspNnkADlw8bnMJTMeUyFywBcwDpNMA7");
+    background-size: 270px 270px;
+    background-position: center;
+    box-shadow: 0 -5px 0 gray;
 }
 

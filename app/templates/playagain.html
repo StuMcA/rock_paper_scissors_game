@@ -1,7 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
+<article class="result">
+    <h2>{{ game_result }}</h2>
+</article>
 
-<h2>{{ game_result }}</h2>
+        <article class="history">
+            <header>
+                <h3>History</h3>
+            </header>
+            <div>
+                {% for result in results %}
+                    <ul>
+                        <li> {{ result }} </li>
+                    </ul>
+                {% endfor %}
+            </div>
+        </article>
+
 
 {% endblock %}

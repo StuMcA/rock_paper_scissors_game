@@ -3,3 +3,5 @@ class Player():
         self.name = name
         self.player_no = player_no
         self.choice = None
+        self.score = 0
+        self.results = []

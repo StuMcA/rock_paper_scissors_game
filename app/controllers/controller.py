@@ -4,13 +4,17 @@ from app.models.list_of_players import player_1, player_2, set_choices
 from app.models.player import Player
 from app.models.game import Game
 
+game = Game(player_1, player_2)
+
 @app.route('/game')
 def index():
     return render_template(
         'index.html', 
         title="Rock, Paper, Scissors!", 
         player_1=player_1, 
-        player_2=player_2
+        player_2=player_2,
+        p1_score=player_1.score,
+        p2_score=player_2.score
     )
 
 @app.route('/game/fight', methods=['POST'])
@@ -29,7 +33,10 @@ def game_result(p1_choice, p2_choice):
         title="Play again!",
         player_1=player_1,
         player_2=player_2,
-        game_result=game_result
+        game_result=game_result,
+        p1_score=player_1.score,
+        p2_score=player_2.score,
+        results=player_1.results
     )
  
 #  @app.route('/game/rock/rock')
