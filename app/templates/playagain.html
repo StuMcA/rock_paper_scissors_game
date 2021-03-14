@@ -1,3 +1,5 @@
+<!-- This page shows the results of the 2 player game and offers a replay -->
+
 {% extends "base.html" %}
 
 {% block content %}
@@ -8,8 +10,17 @@
 
     {% include "history.html" %}
 
-    {% include "two_player_form.html" %}
+    <article>
 
+        <form action="/game/fight" method="post" class="game_form">
 
+            {% include "p1_form.html" %}
+
+            <input type="submit" value="Fight!">
+
+            {% include "p2_form.html" %}
+
+        </form>
+    </article>
 
 {% endblock %}

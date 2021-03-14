@@ -4,8 +4,7 @@ from app.models.list_of_players import player_1, player_2, computer_player, set_
 from app.models.player import Player
 from app.models.game import Game
 
-game = Game(player_1, player_2)
-
+# Home page
 @app.route('/game')
 def index():
     player_1.score = 0
@@ -19,6 +18,7 @@ def index():
         p2_score=player_2.score
     )
 
+# 2 player game - choices submitted
 @app.route('/game/fight', methods=['POST'])
 def fight():
     p1_choice = request.form['p1_choice']
@@ -26,6 +26,7 @@ def fight():
     set_choices(p1_choice, p2_choice)
     return redirect(f"/game/{p1_choice}/{p2_choice}")
 
+# Results page for 2 player game
 @app.route('/game/<p1_choice>/<p2_choice>')
 def game_result(p1_choice, p2_choice):
     game = Game(player_1, player_2)
@@ -41,6 +42,7 @@ def game_result(p1_choice, p2_choice):
         results=player_1.results
     )
 
+# 1 player game - main page
 @app.route('/play')
 def play_game():
     player_1.score = 0
@@ -53,12 +55,14 @@ def play_game():
         p2_score=computer_player.score
     )
 
+# 1 player game - new name submitted
 @app.route('/play/newplayer', methods=['POST'])
 def new_player():
     new_player_name = request.form['player_name']
     player_1.name = new_player_name
     return redirect('/play')
 
+# 1 player game - choice submitted
 @app.route('/play/fight', methods=['POST'])
 def comp_fight():
     p1_choice = request.form['p1_choice']
@@ -66,6 +70,7 @@ def comp_fight():
     set_choices(p1_choice, p2_choice)    
     return redirect(f"/play/{p1_choice}/{p2_choice}")
 
+# 1 player game - results page
 @app.route('/play/<p1_choice>/<p2_choice>')
 def game_result_comp(p1_choice, p2_choice):
     game = Game(player_1, computer_player)
@@ -80,39 +85,3 @@ def game_result_comp(p1_choice, p2_choice):
         p2_score=computer_player.score,
         results=player_1.results
     )
- 
-#  @app.route('/game/rock/rock')
-# def rock_rock():
-#     return "Draw!"
-
-# @app.route('/game/rock/paper')
-# def rock_paper():
-#     return "P2 wins!"
-
-# @app.route('/game/rock/scissors')
-# def rock_scissors():
-#     return "P1 wins!"
-
-# @app.route('/game/paper/rock')
-# def paper_rock():
-#     return "P1 wins!"
-
-# @app.route('/game/paper/paper')
-# def paper_paper():
-#     return "Draw!"
-
-# @app.route('/game/paper/scissors')
-# def paper_scissors():
-#     return "P2 wins!"
-
-# @app.route('/game/scissors/rock')
-# def scissors_rock():
-#     return "P2 wins!"
-
-# @app.route('/game/scissors/paper')
-# def scissors_paper():
-#     return "P1 wins!"
-
-# @app.route('/game/scissors/scissors')
-# def scissors_scissors():
-#     return "Draw!"

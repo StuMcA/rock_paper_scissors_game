@@ -1,3 +1,5 @@
+<!-- Main page giving the outline for all pages -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +12,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Ravi+Prakash&display=swap" rel="stylesheet">
-
-
-
     <title>{{ title }}</title>
 </head>
 <body>
@@ -28,9 +27,11 @@
             </header>
                 <p class="box">{{ p1_score }} : {{ p2_score }}</p>
         </article>
+
         {% block content %}
-        
+                
         {% endblock %}
+
     </main>
     <footer>
 

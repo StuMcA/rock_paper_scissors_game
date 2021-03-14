@@ -3,8 +3,19 @@
 {% block content %}
 <a href="/play" class="site_link">Click here to play the computer!</a>
 
-    {% include "rules.html" %}
+{% include "rules.html" %}
 
-    {% include "two_player_form.html" %}
+<article>
+
+    <form action="/game/fight" method="post" class="game_form">
+
+        {% include "p1_form.html" %}
+
+        <input type="submit" value="Fight!">
+
+        {% include "p2_form.html" %}
+
+    </form>
+</article>
 
 {% endblock %}

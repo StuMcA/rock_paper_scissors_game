@@ -1,19 +1,29 @@
+<!-- This is the main page for the single player game -->
+
 {% extends "base.html" %}
 
 {% block content %}
 
-    <a href="/game" class="site_link">Back to single player</a>
+<a href="/game" class="site_link">Back to single player</a>
 
-    {% include "rules.html" %}
+{% include "rules.html" %}
 
-    <article id="name_change">
-        <form action="/play/newplayer" method="POST">
-            <label for="name">Enter your name:</label>
-            <input type="text" id="name" name="player_name">
-            <input type="submit">
-        </form>
-    </article>
+<article id="name_change">
+    <form action="/play/newplayer" method="POST">
+        <label for="name">Enter your name:</label>
+        <input type="text" id="name" name="player_name">
+        <input type="submit">
+    </form>
+</article>
 
-    {% include "comp_form.html" %}
+<article>
 
-    {% endblock %}
+    <form action="/play/fight" method="post" class="game_form">
+        
+        {% include "p1_form.html" %}
+        
+        <input type="submit" value="Fight!">
+    </form>
+</article>
+
+{% endblock %}
