@@ -3,51 +3,12 @@
 {% block content %}
 <a href="/game" class="site_link">Back to rules</a>
 <article class="result">
-    <h2>{{ game_result }}</h2>
+    <h2 class="box">{{ game_result }}</h2>
 </article>
 
-        <article class="history">
-            <header>
-                <h3>History</h3>
-            </header>
-            <div>
-                {% for result in results %}
-                    <ul>
-                        <li> {{ result }} </li>
-                    </ul>
-                {% endfor %}
-            </div>
-        </article>
-        <article>
+    {% include "history.html" %}
 
-            <form action="/game/fight" method="post" class="game_form">
-                <div id="p1_choice">
-                    <header id="p1_header">
-                        <h4>{{ player_1.name }}'s Choice:</h4>
-                    </header>
-                    <input type="radio" name="p1_choice" value="not selected" checked>
-                    <input type="radio" name="p1_choice" id="p1_rock" value="rock">
-                    <label for="p1_rock" id="p1_rock_label">Rock</label>
-                    <input type="radio" name="p1_choice" id="p1_paper" value="paper">
-                    <label for="p1_paper" id="p1_paper_label">Paper</label>
-                    <input type="radio" name="p1_choice" id="p1_scissors" value="scissors">
-                    <label for="p1_scissors" id="p1_scissors_label">Scissors</label>
-                </div>
-                <input type="submit" value="Fight!">
-                <div id="p2_choice">
-                    <header id="p2_header">
-                        <h4>{{ player_2.name }}'s Choice:</h4>
-                    </header>
-                    <input type="radio" name="p2_choice" value="not selected" checked>
-                    <input type="radio" name="p2_choice" id="p2_rock" value="rock">
-                    <label for="p2_rock" id="p2_rock_label">Rock</label>
-                    <input type="radio" name="p2_choice" id="p2_paper" value="paper">
-                    <label for="p2_paper" id="p2_paper_label">Paper</label>
-                    <input type="radio" name="p2_choice" id="p2_scissors" value="scissors">
-                    <label for="p2_scissors" id="p2_scissors_label">Scissors</label>
-                </div>
-            </form>
-        </article>
+    {% include "two_player_form.html" %}
 
 
 

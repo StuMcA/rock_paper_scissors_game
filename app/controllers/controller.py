@@ -26,13 +26,6 @@ def fight():
     set_choices(p1_choice, p2_choice)
     return redirect(f"/game/{p1_choice}/{p2_choice}")
 
-@app.route('/play/fight', methods=['POST'])
-def comp_fight():
-    p1_choice = request.form['p1_choice']
-    p2_choice = computer_player.choice
-    set_choices(p1_choice, p2_choice)    
-    return redirect(f"/play/{p1_choice}/{p2_choice}")
-
 @app.route('/game/<p1_choice>/<p2_choice>')
 def game_result(p1_choice, p2_choice):
     game = Game(player_1, player_2)
@@ -59,6 +52,19 @@ def play_game():
         p1_score=player_1.score,
         p2_score=computer_player.score
     )
+
+@app.route('/play/newplayer', methods=['POST'])
+def new_player():
+    new_player_name = request.form['player_name']
+    player_1.name = new_player_name
+    return redirect('/play')
+
+@app.route('/play/fight', methods=['POST'])
+def comp_fight():
+    p1_choice = request.form['p1_choice']
+    p2_choice = computer_player.choice
+    set_choices(p1_choice, p2_choice)    
+    return redirect(f"/play/{p1_choice}/{p2_choice}")
 
 @app.route('/play/<p1_choice>/<p2_choice>')
 def game_result_comp(p1_choice, p2_choice):

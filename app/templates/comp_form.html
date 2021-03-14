@@ -1,0 +1,18 @@
+<article>
+
+    <form action="/play/fight" method="post" class="game_form">
+        <div id="p1_choice" class="box">
+            <header id="p1_header">
+                <h4>{{ player_1.name }}'s Choice:</h4>
+            </header>
+            <input type="radio" name="p1_choice" value="not selected" checked>
+            <input type="radio" name="p1_choice" id="p1_rock" value="rock">
+            <label for="p1_rock" id="p1_rock_label">Rock</label>
+            <input type="radio" name="p1_choice" id="p1_paper" value="paper">
+            <label for="p1_paper" id="p1_paper_label">Paper</label>
+            <input type="radio" name="p1_choice" id="p1_scissors" value="scissors">
+            <label for="p1_scissors" id="p1_scissors_label">Scissors</label>
+        </div>
+        <input type="submit" value="Fight!">
+    </form>
+</article>

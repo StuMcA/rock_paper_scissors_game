@@ -3,67 +3,17 @@
 {% block content %}
 
     <a href="/game" class="site_link">Back to single player</a>
-    <article class="rules">
-        <div>
-            <header>
-                <h3>What are the rules?</h3>
-            </header>
-        
-            <p>It's a two player game. Each player chooses either rock, paper or scissors.</p>
-            <ul>
-                <li id="rules_scissors">
-                    <p>Scissors beats paper</p>
-                </li>
-                <li id="rules_rock">
-                    <p>Rock beats scissors</p>
-                </li>
-                <li id="rules_paper">
-                    <p>Paper beats rock</p>
-                </li>
-            </ul>
-        </div>
-        <aside>
-            <div id="pic_scissors"></div>
-            <div id="pic_rock"></div>
-            <div id="pic_paper"></div>
-        </aside>
-    </article>
 
-    <article>
-        <form action="/play">
+    {% include "rules.html" %}
+
+    <article id="name_change">
+        <form action="/play/newplayer" method="POST">
             <label for="name">Enter your name:</label>
-            <input type="text" id="name">
+            <input type="text" id="name" name="player_name">
+            <input type="submit">
         </form>
     </article>
-    <article>
 
-        <form action="/play/fight" method="post" class="game_form">
-            <div id="p1_choice">
-                <header id="p1_header">
-                    <h4>{{ player_1.name }}'s Choice:</h4>
-                </header>
-                <input type="radio" name="p1_choice" value="not selected" checked>
-                <input type="radio" name="p1_choice" id="p1_rock" value="rock">
-                <label for="p1_rock" id="p1_rock_label">Rock</label>
-                <input type="radio" name="p1_choice" id="p1_paper" value="paper">
-                <label for="p1_paper" id="p1_paper_label">Paper</label>
-                <input type="radio" name="p1_choice" id="p1_scissors" value="scissors">
-                <label for="p1_scissors" id="p1_scissors_label">Scissors</label>
-            </div>
-            <input type="submit" value="Fight!">
-            <div id="p2_choice">
-                <header id="p2_header">
-                    <h4>{{ player_2.name }}'s Choice:</h4>
-                </header>
-                <input type="radio" name="p2_choice" value="not selected" checked>
-                <input type="radio" name="p2_choice" id="p2_rock" value="rock">
-                <label for="p2_rock" id="p2_rock_label">Rock</label>
-                <input type="radio" name="p2_choice" id="p2_paper" value="paper">
-                <label for="p2_paper" id="p2_paper_label">Paper</label>
-                <input type="radio" name="p2_choice" id="p2_scissors" value="scissors">
-                <label for="p2_scissors" id="p2_scissors_label">Scissors</label>
-            </div>
-        </form>
-    </article>
+    {% include "comp_form.html" %}
 
     {% endblock %}
